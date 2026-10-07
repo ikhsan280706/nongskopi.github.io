@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelola Menu - NONGSKOPI OUR MENU</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Container -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+      <!-- Top Header Container -->
+      <div id="top-header-container"></div>
+
+      <div class="content-body">
+        
+        <!-- Header Banner -->
+        <div style="margin-bottom: 24px; background: linear-gradient(135deg, var(--dark-brown), var(--coffee-brown)); color: var(--white); padding: 24px 28px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <h2 style="font-size: 24px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px;">NONGSKOPI OUR MENU</h2>
+            <p style="font-size: 14px; color: var(--cream); opacity: 0.9;">Kelola daftar menu kopi, non-kopi, serta ketersediaan stok.</p>
+          </div>
+          <button class="btn btn-accent" onclick="openAddMenuModal()">
+            <span>+ Tambah Menu Baru</span>
+          </button>
+        </div>
+
+        <!-- Filter & Search Controls -->
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-body" style="padding: 16px 20px;">
+            <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+              <div style="flex: 1; min-width: 250px;">
+                <input type="text" id="menu-search-input" class="form-control" placeholder="Cari nama menu atau deskripsi...">
+              </div>
+              <div style="width: 200px;">
+                <select id="menu-category-filter" class="form-select">
+                  <option value="Semua">Semua Kategori</option>
+                  <option value="Espresso-Based">Espresso-Based</option>
+                  <option value="Manual Brew">Manual Brew</option>
+                  <option value="Americano Series">Americano Series</option>
+                  <option value="Non Coffee">Non Coffee</option>
+                  <option value="Add On">Add On</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Menu Table -->
+        <div class="card">
+          <div class="card-body" style="padding: 0;">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Nama Menu</th>
+                    <th>Kategori</th>
+                    <th style="text-align: right;">Harga</th>
+                    <th style="text-align: right;">Stok</th>
+                    <th>Status</th>
+                    <th style="text-align: center;">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="menu-table-tbody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD / EDIT MENU MODAL -->
+  <div class="modal-backdrop" id="menu-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="menu-modal-title">Tambah Menu Baru</h3>
+        <button class="modal-close-btn" onclick="closeMenuModal()">x</button>
+      </div>
+      <form id="menu-form">
+        <div class="modal-body">
+          <input type="hidden" id="menu-id-input">
+
+          <div class="form-group">
+            <label class="form-label" for="menu-name-input">Nama Menu</label>
+            <input type="text" id="menu-name-input" class="form-control" placeholder="Contoh: Aren Latte" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="menu-category-input">Kategori</label>
+              <select id="menu-category-input" class="form-select" required>
+                <option value="Espresso-Based">Espresso-Based</option>
+                <option value="Manual Brew">Manual Brew</option>
+                <option value="Americano Series">Americano Series</option>
+                <option value="Non Coffee">Non Coffee</option>
+                <option value="Add On">Add On</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="menu-price-input">Harga (Rp)</label>
+              <input type="number" id="menu-price-input" class="form-control" min="0" placeholder="15000" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="menu-stock-input">Jumlah Stok</label>
+              <input type="number" id="menu-stock-input" class="form-control" min="0" placeholder="50" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="menu-status-input">Status</label>
+              <select id="menu-status-input" class="form-select" required>
+                <option value="Tersedia">Tersedia</option>
+                <option value="Habis">Habis</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="menu-icon-input">Icon / Emoji Coffee</label>
+            <input type="text" id="menu-icon-input" class="form-control" placeholder="☕ / 🍵 / 🍹" value="☕">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="menu-desc-input">Deskripsi Menu</label>
+            <textarea id="menu-desc-input" class="form-control" rows="3" placeholder="Penjelasan singkat bahan atau cita rasa..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeMenuModal()">Batal</button>
+          <button type="submit" class="btn btn-primary">Simpan Menu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

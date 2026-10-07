@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - NONGSKOPI Kasir</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar Container rendered by initLayout -->
+      <div id="sidebar-container"></div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Top Header Container rendered by initLayout -->
+        <div id="top-header-container"></div>
+
+        <div class="content-body">
+          <!-- Welcome Banner -->
+          <div
+            style="
+              margin-bottom: 24px;
+              background: linear-gradient(
+                135deg,
+                var(--dark-brown),
+                var(--coffee-brown)
+              );
+              color: var(--white);
+              padding: 24px 28px;
+              border-radius: var(--radius-lg);
+              box-shadow: var(--shadow-md);
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <div>
+              <h2
+                style="font-size: 22px; font-weight: 700; margin-bottom: 4px"
+                id="welcome-greeting"
+              >
+                Selamat datang, Admin
+              </h2>
+              <p style="font-size: 14px; color: var(--cream); opacity: 0.9">
+                Aplikasi Kasir Coffee Shop Nongskopi siap digunakan.
+              </p>
+            </div>
+            <a
+              href="kasir.html"
+              class="btn btn-accent"
+              style="white-space: nowrap"
+            >
+              <span>Buka Kasir</span>
+            </a>
+          </div>
+
+          <!-- Metric Stat Cards Grid -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-details">
+                <h3>Total Penjualan Hari Ini</h3>
+                <div class="stat-value" id="stat-sales-today">Rp0</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-details">
+                <h3>Total Pesanan Hari Ini</h3>
+                <div class="stat-value" id="stat-orders-today">0 Pesanan</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-details">
+                <h3>Menu Terjual Hari Ini</h3>
+                <div class="stat-value" id="stat-items-sold-today">0 Item</div>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-details">
+                <h3>Pendapatan Hari Ini</h3>
+                <div class="stat-value" id="stat-revenue-today">Rp0</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Orders Table -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">
+                <span>Pesanan Terbaru</span>
+              </div>
+              <a href="pesanan.html" class="btn btn-outline btn-sm"
+                >Lihat Semua Pesanan →</a
+              >
+            </div>
+            <div class="card-body" style="padding: 0">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>ID Pesanan</th>
+                      <th>Pelanggan</th>
+                      <th>Menu</th>
+                      <th>Total</th>
+                      <th>Status</th>
+                      <th>Waktu</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-orders-tbody">
+                    <!-- Rendered dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

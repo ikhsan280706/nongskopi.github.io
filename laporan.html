@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laporan Penjualan - NONGSKOPI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Container -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+      <!-- Top Header Container -->
+      <div id="top-header-container"></div>
+
+      <div class="content-body">
+        
+        <!-- Header Banner with Export Button -->
+        <div style="margin-bottom: 24px; background: linear-gradient(135deg, var(--dark-brown), var(--coffee-brown)); color: var(--white); padding: 24px 28px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 4px;">Laporan & Analisis Penjualan</h2>
+            <p style="font-size: 14px; color: var(--cream); opacity: 0.9;">Pantau perkembangan omset, produk terlaris, dan unduh data transaksi.</p>
+          </div>
+          <button class="btn btn-accent" id="btn-export-csv">
+            <span>Export Laporan (CSV)</span>
+          </button>
+        </div>
+
+        <!-- 4 Summary Metric Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-details">
+              <h3>Penjualan Hari Ini</h3>
+              <div class="stat-value" id="report-sales-today">Rp0</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-details">
+              <h3>Penjualan Minggu Ini</h3>
+              <div class="stat-value" id="report-sales-week">Rp0</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-details">
+              <h3>Penjualan Bulan Ini</h3>
+              <div class="stat-value" id="report-sales-month">Rp0</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-details">
+              <h3>Total Transaksi</h3>
+              <div class="stat-value" id="report-total-trx">0 Transaksi</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Column Analytics Layout (Chart + Top Menu) -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 24px;">
+          
+          <!-- Pure Canvas Sales Trend Chart -->
+          <div class="card" style="margin-bottom: 0;">
+            <div class="card-header">
+              <div class="card-title">
+                <span>Grafik Penjualan 7 Hari Terakhir</span>
+              </div>
+            </div>
+            <div class="card-body" style="display: flex; justify-content: center; align-items: center; padding: 20px;">
+              <canvas id="sales-canvas-chart" width="600" height="300" style="width: 100%; max-width: 100%; height: auto; background-color: var(--white); border-radius: var(--radius-md);"></canvas>
+            </div>
+          </div>
+
+          <!-- Top Selling Products List -->
+          <div class="card" style="margin-bottom: 0;">
+            <div class="card-header">
+              <div class="card-title">
+                <span>Menu Terlaris</span>
+              </div>
+            </div>
+            <div class="card-body" style="padding: 16px;">
+              <div id="top-selling-list" style="display: flex; flex-direction: column; gap: 12px;">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/laporan.js"></script>
+</body>
+</html>

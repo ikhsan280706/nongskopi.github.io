@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riwayat Pesanan - NONGSKOPI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Container -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+      <!-- Top Header Container -->
+      <div id="top-header-container"></div>
+
+      <div class="content-body">
+        
+        <!-- Filter Bar Card -->
+        <div class="card" style="margin-bottom: 20px;">
+          <div class="card-body" style="padding: 16px 20px;">
+            <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+              <div style="flex: 1; min-width: 250px;">
+                <label class="form-label" style="font-size: 11px;">Search Transaksi</label>
+                <input type="text" id="trx-search-input" class="form-control" placeholder="Cari ID (NS-XXXXX) atau Nama Pelanggan...">
+              </div>
+
+              <div style="width: 180px;">
+                <label class="form-label" style="font-size: 11px;">Filter Tanggal</label>
+                <input type="date" id="trx-date-filter" class="form-control">
+              </div>
+
+              <div style="width: 160px;">
+                <label class="form-label" style="font-size: 11px;">Filter Status</label>
+                <select id="trx-status-filter" class="form-select">
+                  <option value="Semua">Semua Status</option>
+                  <option value="Selesai">Selesai</option>
+                  <option value="Diproses">Diproses</option>
+                  <option value="Dibatalkan">Dibatalkan</option>
+                </select>
+              </div>
+
+              <div style="padding-top: 18px;">
+                <button class="btn btn-outline btn-sm" onclick="resetTrxFilters()">Reset Filter</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transactions Table -->
+        <div class="card">
+          <div class="card-body" style="padding: 0;">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID Transaksi</th>
+                    <th>Tanggal & Waktu</th>
+                    <th>Pelanggan</th>
+                    <th>Rincian Item</th>
+                    <th style="text-align: right;">Total</th>
+                    <th>Pembayaran</th>
+                    <th>Status</th>
+                    <th style="text-align: center;">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="trx-table-tbody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSACTION DETAIL MODAL -->
+  <div class="modal-backdrop" id="trx-detail-modal">
+    <div class="modal-dialog" style="max-width: 550px;">
+      <div class="modal-header">
+        <h3 id="trx-modal-title">Rincian Transaksi</h3>
+        <button class="modal-close-btn" onclick="closeTrxDetailModal()">✖</button>
+      </div>
+      <div class="modal-body" id="trx-detail-modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeTrxDetailModal()">Tutup</button>
+        <button type="button" class="btn btn-primary" id="btn-reprint-receipt">Cetak Ulang Struk</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/pesanan.js"></script>
+</body>
+</html>

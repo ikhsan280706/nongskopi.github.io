@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengaturan Toko - NONGSKOPI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Container -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+      <!-- Top Header Container -->
+      <div id="top-header-container"></div>
+
+      <div class="content-body">
+        
+        <div class="card" style="max-width: 650px; margin: 0 auto;">
+          <div class="card-header">
+            <div class="card-title">
+              <span>Pengaturan Coffee Shop Nongskopi</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <form id="settings-form">
+              
+              <div class="form-group">
+                <label class="form-label" for="setting-store-name">Nama Coffee Shop</label>
+                <input type="text" id="setting-store-name" class="form-control" value="Nongskopi" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="setting-tagline">Tagline</label>
+                <input type="text" id="setting-tagline" class="form-control" value="BREAK WITH YOUR COFFE" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="setting-address">Alamat</label>
+                <input type="text" id="setting-address" class="form-control" placeholder="Masukkan alamat coffee shop..." required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="setting-phone">Nomor Telepon</label>
+                <input type="text" id="setting-phone" class="form-control" placeholder="Masukkan nomor telepon..." required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="setting-cashier-name">Nama Kasir / Admin</label>
+                <input type="text" id="setting-cashier-name" class="form-control" value="Admin" required>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <div class="form-group">
+                  <label class="form-label" for="setting-tax">Default Pajak (%)</label>
+                  <input type="number" id="setting-tax" class="form-control" min="0" max="100" value="0" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="setting-discount">Default Diskon (%)</label>
+                  <input type="number" id="setting-discount" class="form-control" min="0" max="100" value="0" required>
+                </div>
+              </div>
+
+              <div style="margin-top: 24px; text-align: right;">
+                <button type="submit" class="btn btn-primary" style="padding: 12px 24px;">
+                 Simpan Pengaturan
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/pengaturan.js"></script>
+</body>
+</html>

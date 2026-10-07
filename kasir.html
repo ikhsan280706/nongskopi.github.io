@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasir - NONGSKOPI</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Container -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-content">
+      <!-- Top Header Container -->
+      <div id="top-header-container"></div>
+
+      <div class="content-body" style="padding-bottom: 20px;">
+        <div class="pos-container">
+          
+          <!-- LEFT: MENU CATALOG AREA -->
+          <div class="pos-menu-area">
+            <!-- Search & Filters -->
+            <div class="pos-search-filter">
+              <div class="input-group">
+                <input type="text" id="pos-search-input" class="form-control" placeholder="Cari menu Nongskopi...">
+              </div>
+
+              <!-- Category Pills -->
+              <div class="category-pills" id="category-pills-container">
+                <button class="category-pill active" data-category="Semua">Semua</button>
+                <button class="category-pill" data-category="Espresso-Based">Espresso-Based</button>
+                <button class="category-pill" data-category="Manual Brew">Manual Brew</button>
+                <button class="category-pill" data-category="Americano Series">Americano Series</button>
+                <button class="category-pill" data-category="Non Coffee">Non Coffee</button>
+                <button class="category-pill" data-category="Add On">Add On</button>
+              </div>
+            </div>
+
+            <!-- Menu Cards Grid -->
+            <div class="menu-grid" id="pos-menu-grid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- RIGHT: CART & CHECKOUT PANEL -->
+          <div class="pos-cart-panel">
+            <div class="cart-header">
+              <h3>Pesanan Baru</h3>
+              <span class="cart-trx-id" id="cart-trx-id-display">NS-00001</span>
+            </div>
+
+            <!-- Customer Name Input -->
+            <div class="cart-customer-input">
+              <label class="form-label" for="customer-name-input" style="font-size: 12px; margin-bottom: 4px;">Nama Pelanggan</label>
+              <input type="text" id="customer-name-input" class="form-control" placeholder="Masukkan nama pelanggan..." required>
+            </div>
+
+            <!-- Cart Items List -->
+            <div class="cart-items-list" id="cart-items-list">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Cart Calculations & Checkout Footer -->
+            <div class="cart-footer">
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">Rp0</span>
+              </div>
+
+              <div class="cart-options-row">
+                <div>
+                  <label for="cart-discount-input">Diskon (%)</label>
+                  <input type="number" id="cart-discount-input" class="form-control form-control-sm" min="0" max="100" value="0">
+                </div>
+                <div>
+                  <label for="cart-tax-input">Pajak (%)</label>
+                  <input type="number" id="cart-tax-input" class="form-control form-control-sm" min="0" max="100" value="0">
+                </div>
+              </div>
+
+              <div class="summary-row total-row">
+                <span>TOTAL BAYAR</span>
+                <span id="cart-total" style="color: var(--coffee-brown);">Rp0</span>
+              </div>
+
+              <!-- Payment Input & Method -->
+              <div style="margin-top: 6px;">
+                <label class="form-label" style="font-size: 11px; margin-bottom: 2px;">Metode Pembayaran</label>
+                <div class="payment-method-selector">
+                  <button type="button" class="payment-method-btn active" data-method="Cash">Cash</button>
+                  <button type="button" class="payment-method-btn" data-method="QRIS">QRIS</button>
+                  <button type="button" class="payment-method-btn" data-method="Debit">Debit</button>
+                </div>
+              </div>
+
+              <div style="margin-top: 6px;">
+                <label class="form-label" for="cart-pay-amount-input" style="font-size: 11px; margin-bottom: 2px;">Jumlah Pembayaran (Rp)</label>
+                <input type="number" id="cart-pay-amount-input" class="form-control pay-amount-input" placeholder="0" min="0">
+              </div>
+
+              <div class="change-display danger" id="cart-change-display">
+                Pembayaran belum mencukupi
+              </div>
+
+              <button type="button" class="btn btn-primary" id="btn-process-checkout" style="width: 100%; padding: 12px; margin-top: 4px;">
+               PROSES PEMBAYARAN
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECEIPT MODAL -->
+  <div class="modal-backdrop" id="receipt-modal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>Struk Pembayaran</h3>
+        <button class="modal-close-btn" onclick="closeReceiptModal()">✖</button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Thermal Receipt Container -->
+        <div class="receipt-paper" id="receipt-paper-content">
+          <!-- Rendered dynamically -->
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeReceiptModal()">Tutup</button>
+        <button type="button" class="btn btn-primary" onclick="printReceipt()">Cetak Struk</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/kasir.js"></script>
+</body>
+</html>
